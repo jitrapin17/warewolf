@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warewolf - Handmade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Handmade frame overrides (node 96:103) ─────────────── */
+
+    /* top-section: gap 10px per Figma (base is 12px) */
+    .top-section { gap: 10px; }
+
+    /* role-name-container: 83px fixed height, children absolutely positioned */
+    .role-name-container {
+      display: block;   /* override base flex-direction:column */
+      height: 83px;
+    }
+
+    /* deco-top-bar sits at top:0 inside the container */
+    .deco-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* heading area: absolute at top:15px (96:115) */
+    .role-heading-area {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 0; /* override base */
+    }
+
+    /* title wrapper: fixed 36px height (96:116) */
+    .role-title-wrapper { height: 36px; }
+
+    /* subtitle wrapper: fixed 20px, single-line centered (96:118) */
+    .role-subtitle-wrapper {
+      position: relative;
+      height: 20px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .role-subtitle {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      top: 0;
+    }
+
+    /* deco-bottom-line: absolute at top:82px (96:120) */
+    .deco-bottom-line {
+      position: absolute;
+      top: 82px;
+      left: 0;
+      margin-top: 0; /* override base */
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="container">
+
+      <!-- Top section (96:105) -->
+      <div class="top-section">
+
+        <!-- Inner section (96:106) -->
+        <div class="inner-section">
+
+          <!-- Reveal title (96:107) -->
+          <!-- figma-node-id:96:107 -->
+          <div class="reveal-title">
+            <p>Your Role</p>
+            <p>Has Been Revealed</p>
+          </div>
+
+          <!-- Role card (96:108) -->
+          <!-- figma-node-id:96:108 -->
+          <div class="role-card">
+            <div class="role-card-inner">
+              <img
+                class="role-image"
+                src="assets/wolfcub.png"
+                alt="Werewolf"
+              />
+            </div>
+          </div>
+
+          <!-- Role name container (96:110) — 285.734×83px, absolute children -->
+          <!-- figma-node-id:96:110 -->
+          <div class="role-name-container">
+
+            <!-- Deco top bar (96:111) -->
+            <!-- figma-node-id:96:111 -->
+            <div class="deco-top-bar">
+              <div class="deco-left-line"></div>
+              <div class="deco-diamond-wrapper">
+                <div class="deco-diamond"></div>
+              </div>
+              <div class="deco-right-line"></div>
+            </div>
+
+            <!-- Heading area (96:115) — top:15px -->
+            <!-- figma-node-id:96:115 -->
+            <div class="role-heading-area">
+
+              <!-- Title wrapper (96:116) -->
+              <!-- figma-node-id:96:116 -->
+              <div class="role-title-wrapper">
+                <h1 class="role-title">wolf cub</h1>
+              </div>
+
+              <!-- Subtitle wrapper (96:118) — single line -->
+              <!-- figma-node-id:96:118 -->
+              <div class="role-subtitle-wrapper">
+                <p class="role-subtitle">Young blood, bound by the pack's ancient oath.</p>
+              </div>
+
+            </div>
+
+            <!-- Deco bottom line (96:120) — top:82px -->
+            <!-- figma-node-id:96:120 -->
+            <div class="deco-bottom-line">
+              <div class="deco-bottom-inner"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Info card (96:122) -->
+        <!-- figma-node-id:96:122 -->
+        <div class="info-card">
+
+          <!-- Ability row (96:123) -->
+          <!-- figma-node-id:96:123 -->
+          <div class="info-row">
+            <div class="icon-btn">
+              <!-- figma-node-id:I96:124;96:67 -->
+              <div class="icon-inner icon-inner--ability">
+                <img
+                  class="icon-img"
+                  src="assets/icon-ability.svg"
+                  alt="Ability icon"
+                />
+              </div>
+            </div>
+            <div class="info-text">
+              <!-- figma-node-id:96:126 -->
+              <p class="info-label">Pack Vengeance</p>
+              <!-- figma-node-id:96:127 -->
+              <p class="info-desc">If slain, the pack hunts twice the following night.</p>
+            </div>
+          </div>
+
+          <!-- Win Condition row (96:128) -->
+          <!-- figma-node-id:96:128 -->
+          <div class="info-row">
+            <div class="icon-btn">
+              <!-- figma-node-id:I96:129;96:76 -->
+              <div class="icon-inner icon-inner--win">
+                <img
+                  class="icon-img"
+                  src="assets/icon-win.svg"
+                  alt="Win condition icon"
+                />
+              </div>
+            </div>
+            <div class="info-text">
+              <!-- figma-node-id:96:131 -->
+              <p class="info-label">Victory</p>
+              <!-- figma-node-id:96:132 -->
+              <p class="info-desc">Stand with the pack when wolves outnumber the innocent.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Start button (96:133) -->
+      <!-- figma-node-id:96:133 -->
+      <button class="start-btn">STart</button>
+
+    </div>
+  </div>
+</body>
+</html>

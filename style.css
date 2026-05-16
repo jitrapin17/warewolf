@@ -1,0 +1,386 @@
+/* ============================================================
+   Figma Design Tokens → CSS Custom Properties
+   Source: POC-TEST-FIGMA-CLAUDE (lOwNSYgupZrmcUcEekXOkC)
+   ============================================================ */
+:root {
+  /* Colors — Woft palette */
+  --color-bg-dark:       #181715; /* Woft/BG/Dark Grey */
+  --color-bg-grey:       #303030; /* Woft/BG/BG Grey */
+  --color-brand-red:     #900904; /* Woft/Brand/Red */
+  --color-cream:         #BAB7AC; /* Woft/Drak Cream */
+  --color-cream-light:   #FFF9E2;
+  --color-white:         #FFFFFF;
+  --color-icon-dark:     #212121;
+
+  /* Gradients */
+  --gradient-bg:         linear-gradient(134.999deg, #900904 0%, rgba(185,234,232,0.3) 66.667%, rgba(144,9,4,0.6) 100%);
+  --gradient-icon:       linear-gradient(to right, #900904, #212121);
+  --gradient-card-bg:    linear-gradient(to bottom, rgba(48,48,48,0) 0%, #303030 85%);
+  --gradient-title:      linear-gradient(90deg, rgb(146,5,3) 0%, rgb(181,234,232) 100%);
+  --gradient-deco-gold-l: linear-gradient(to right, rgba(0,0,0,0), rgba(232,165,48,0.5));
+  --gradient-deco-gold-r: linear-gradient(to left,  rgba(0,0,0,0), rgba(232,165,48,0.5));
+  --gradient-deco-bottom: linear-gradient(to right, rgba(0,0,0,0), rgba(0,51,51,0.3), rgba(0,0,0,0));
+
+  /* Typography — text/* tokens */
+  --font-cinzel:         'Cinzel', sans-serif;
+  --font-cinzel-deco:    'Cinzel Decorative', sans-serif;
+  --font-cormorant:      'Cormorant Garamond', sans-serif;
+
+  /* text/display/h1 */
+  --text-h1-family:      var(--font-cinzel-deco);
+  --text-h1-size:        33px;
+  --text-h1-weight:      700;
+
+  /* text/label/large */
+  --text-label-lg-family: var(--font-cinzel);
+  --text-label-lg-size:   14px;
+  --text-label-lg-weight: 700;
+
+  /* text/label/medium */
+  --text-label-md-family: var(--font-cinzel);
+  --text-label-md-size:   12px;
+  --text-label-md-weight: 700;
+
+  /* text/body/large */
+  --text-body-lg-family:  var(--font-cormorant);
+  --text-body-lg-size:    14px;
+  --text-body-lg-weight:  400;
+
+  /* Effects */
+  --effect-title-shadow: drop-shadow(0px 2px 8px rgba(185,48,50,0.5)); /* Title token */
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Screen & container  (mirrors Figma node 145:33)
+   ============================================================ */
+.screen {
+  width: 390px;
+  min-height: 844px;
+  background-color: var(--color-bg-dark);
+  position: relative;
+}
+
+/* flex col, gap-16px, items-center, pt-24 pb-28 px-16 */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 844px;
+  padding: 24px 16px 28px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ============================================================
+   Top section  (145:34) — flex-1, flex col, gap-12px, pt-12
+   ============================================================ */
+.top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 12px;
+}
+
+/* ============================================================
+   Inner section  (145:35) — groups title + card + name
+   gap-18px, px-24px, items-center, w-full
+   ============================================================ */
+.inner-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Reveal title  (145:36)
+   ============================================================ */
+.reveal-title {
+  font-family: var(--text-label-lg-family);
+  font-weight: var(--text-label-lg-weight);
+  font-size: var(--text-label-lg-size);
+  color: var(--color-cream);
+  text-align: center;
+  line-height: normal;
+  width: 100%;
+}
+
+/* ============================================================
+   Role card  (145:37) — 306.306 × 388px, gradient border
+   ============================================================ */
+.role-card {
+  width: 306.306px;
+  height: 388px;
+  border-radius: 20.392px;
+  padding: 7.647px;
+  background: var(--gradient-bg);
+  flex-shrink: 0;
+}
+
+.role-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 15.294px;
+  overflow: hidden;
+}
+
+.role-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15.294px;
+}
+
+/* ============================================================
+   Role name container  (145:39) — 285.734 × 83px, absolute children
+   ============================================================ */
+.role-name-container {
+  position: relative;
+  width: 285.734px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top deco bar (145:40) --------------------------------- */
+.deco-top-bar {
+  position: relative;
+  width: 285.734px;
+  height: 6px;
+  flex-shrink: 0;
+}
+
+.deco-left-line {
+  position: absolute;
+  left: 87.86px;
+  top: 2.5px;
+  width: 40px;
+  height: 1px;
+  background: var(--gradient-deco-gold-l);
+}
+
+.deco-diamond-wrapper {
+  position: absolute;
+  left: 138.62px;
+  top: -1.24px;
+  width: 8.485px;
+  height: 8.485px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deco-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-brand-red);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.deco-right-line {
+  position: absolute;
+  left: 157.86px;
+  top: 2.5px;
+  width: 40px;
+  height: 1px;
+  background: var(--gradient-deco-gold-r);
+}
+
+/* --- Name content area — follows deco-top-bar in flow ----- */
+.role-heading-area {
+  padding-top: 9px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Heading wrapper — drop-shadow, auto height */
+.role-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  filter: var(--effect-title-shadow);
+  flex-shrink: 0;
+}
+
+.role-title {
+  font-family: var(--text-h1-family);
+  font-weight: var(--text-h1-weight);
+  font-size: var(--text-h1-size);
+  line-height: normal;
+  white-space: nowrap;
+  background-image:
+    var(--gradient-title),
+    linear-gradient(180deg, rgb(230,210,153) 0%, rgb(232,165,48) 40%, rgb(152,89,27) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtitle wrapper — auto height รองรับ multiline */
+.role-subtitle-wrapper {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.role-subtitle {
+  font-family: var(--text-body-lg-family);
+  font-weight: var(--text-body-lg-weight);
+  font-size: var(--text-body-lg-size);
+  line-height: 1.6;
+  color: var(--color-cream);
+  text-align: center;
+  width: 100%;
+}
+
+/* --- Bottom deco line — follows content in flow ------------ */
+.deco-bottom-line {
+  width: 285.734px;
+  height: 1px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 110.875px 0 110.859px;
+}
+
+.deco-bottom-inner {
+  flex: 1;
+  height: 1px;
+  background: var(--gradient-deco-bottom);
+}
+
+/* ============================================================
+   Info card  (145:51) — gradient bg, rounded-24
+   ============================================================ */
+.info-card {
+  width: 100%;
+  border-radius: 24px;
+  background: var(--gradient-card-bg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+/* Icon button  (36×36px, rounded-8, gradient) */
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--gradient-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  flex-shrink: 0;
+}
+
+/* Icon inner container — sized per Figma spec */
+.icon-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-inner--ability {
+  width: 12px;
+  height: 14.002px;
+}
+
+.icon-inner--win {
+  width: 12px;
+  height: 12px;
+}
+
+.icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Info text */
+.info-text {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  line-height: normal;
+}
+
+.info-label {
+  font-family: var(--text-label-md-family);
+  font-weight: var(--text-label-md-weight);
+  font-size: var(--text-label-md-size);
+  color: var(--color-cream-light);
+  line-height: normal;
+}
+
+.info-desc {
+  font-family: var(--text-body-lg-family);
+  font-weight: var(--text-body-lg-weight);
+  font-size: var(--text-body-lg-size);
+  color: var(--color-cream);
+  line-height: normal;
+}
+
+/* ============================================================
+   Start button  (145:62)
+   ============================================================ */
+.start-btn {
+  width: 100%;
+  background-color: var(--color-brand-red);
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-family: var(--text-label-lg-family);
+  font-weight: var(--text-label-lg-weight);
+  font-size: var(--text-label-lg-size);
+  color: var(--color-white);
+  text-align: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: normal;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.start-btn:hover  { background-color: #b00a05; }
+.start-btn:active { background-color: #700703; }
