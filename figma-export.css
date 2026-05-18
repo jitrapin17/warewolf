@@ -1,0 +1,524 @@
+/* Exported from POC-TEST-FIGMA-CLAUDE frames:
+   SEER (897:40), WITCH (908:8), Login / screen 2 (877:390) */
+:root {
+  --woft-bg-dark: #181715;
+  --woft-bg-grey: #303030;
+  --woft-brand-red: #900904;
+  --woft-cream: #fff9e2;
+  --woft-dark-cream: #bab7ac;
+  --woft-white: #ffffff;
+  --woft-icon-dark: #212121;
+
+  --font-cinzel: "Cinzel", serif;
+  --font-cinzel-deco: "Cinzel Decorative", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-thai: "Noto Serif Thai", "Noto Sans", sans-serif;
+
+  --gradient-info-card: linear-gradient(to right, rgba(48, 48, 48, 0) 0%, #303030 85%);
+  --gradient-icon: linear-gradient(to right, #900904 0%, #212121 100%);
+  --gradient-deco-gold-l: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(232, 165, 48, 0.5));
+  --gradient-deco-gold-r: linear-gradient(to right, rgba(232, 165, 48, 0.5), rgba(0, 0, 0, 0));
+  --gradient-deco-bottom: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 51, 51, 0.3), rgba(0, 0, 0, 0));
+
+  /* Figma paint styles created from SEER (897:40) */
+  --figma-color-Woft-Role-Seer-Background: #181715; /* Woft/Role/Seer/Background */
+  --figma-color-Woft-Role-Seer-Card-Border: linear-gradient(128.289deg, #0a5c9d 14.286%, rgba(130, 232, 255, 0.55) 50%, #123b78 85.714%); /* Woft/Role/Seer/Card Border */
+  --figma-color-Woft-Role-Seer-Title-Text: linear-gradient(90deg, #5ddcff 0%, #eafbff 52%, #1f7cff 100%); /* Woft/Role/Seer/Title Text */
+  --figma-color-Woft-Role-Seer-Deco-Line: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(93, 220, 255, 0.65), rgba(0, 0, 0, 0)); /* Woft/Role/Seer/Deco Line */
+  --figma-color-Woft-Role-Seer-Reveal-Text: #d9f4ff; /* Woft/Role/Seer/Reveal Text */
+
+  /* Figma paint styles created from WITCH (908:8) */
+  --figma-color-Woft-Role-Witch-Background: #181715; /* Woft/Role/Witch/Background */
+  --figma-color-Woft-Role-Witch-Card-Border: linear-gradient(126.708deg, #5e2a8c 14.286%, rgba(180, 112, 255, 0.72) 46.429%, rgba(100, 214, 138, 0.58) 67.857%, #20102e 85.714%); /* Woft/Role/Witch/Card Border */
+  --figma-color-Woft-Role-Witch-Title-Text: linear-gradient(90deg, #b470ff 0%, #f4e3a1 52%, #64d68a 100%); /* Woft/Role/Witch/Title Text */
+  --figma-color-Woft-Role-Witch-Deco-Line: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(169, 120, 255, 0.7), rgba(0, 0, 0, 0)); /* Woft/Role/Witch/Deco Line */
+  --figma-color-Woft-Role-Witch-Deco-Diamond: #64d68a; /* Woft/Role/Witch/Deco Diamond */
+  --figma-color-Woft-Role-Witch-Reveal-Text: #cdb8d8; /* Woft/Role/Witch/Reveal Text */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: #bdbdbd;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.screen {
+  width: 390px;
+  height: 844px;
+  overflow: hidden;
+  position: relative;
+  background: var(--role-background, var(--woft-bg-dark));
+  color: var(--woft-dark-cream);
+}
+
+.role-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+  padding: 24px 16px 28px;
+}
+
+.role-top {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.role-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.reveal-title {
+  width: 310px;
+  margin: 0;
+  font-family: var(--font-cinzel);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  color: var(--reveal-color, var(--woft-dark-cream));
+}
+
+.role-card {
+  width: 306.306px;
+  height: 388px;
+  padding: 7.647px;
+  border-radius: 20.392px;
+  background: var(--role-card-border);
+  overflow: hidden;
+}
+
+.role-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 15.294px;
+  overflow: hidden;
+}
+
+.role-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 15.294px;
+}
+
+.role-image--witch {
+  height: 117.12%;
+  object-position: center top;
+  transform: translateY(-0.93%);
+}
+
+.role-name {
+  width: 285.734px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.deco-top {
+  position: relative;
+  width: 285.734px;
+  height: 6px;
+}
+
+.deco-line {
+  position: absolute;
+  top: 2.5px;
+  width: 40px;
+  height: 1px;
+  background: var(--role-deco-line);
+}
+
+.deco-line--left {
+  left: 87.86px;
+}
+
+.deco-line--right {
+  left: 157.86px;
+}
+
+.deco-diamond {
+  position: absolute;
+  left: 140.9px;
+  top: 1.24px;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--role-deco-diamond, var(--woft-brand-red));
+}
+
+.role-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding-top: 9px;
+}
+
+.role-title {
+  margin: 0;
+  font-family: var(--font-cinzel-deco);
+  font-size: 33px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  color: transparent;
+  background: var(--role-title-fill);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: var(--role-title-shadow);
+}
+
+.role-subtitle {
+  width: 285.734px;
+  margin: 0;
+  font-family: var(--font-cormorant);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--role-subtitle-color);
+  text-align: center;
+}
+
+.deco-bottom {
+  width: 285.734px;
+  height: 1px;
+  margin-top: 0;
+  padding: 0 110.875px 0 110.859px;
+}
+
+.deco-bottom-inner {
+  width: 64px;
+  height: 1px;
+  background: var(--role-deco-bottom);
+}
+
+.info-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 24px;
+  background: var(--gradient-info-card);
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--gradient-icon);
+}
+
+.icon-img {
+  width: var(--icon-size, 18px);
+  height: var(--icon-size, 18px);
+  object-fit: contain;
+  display: block;
+}
+
+.info-text {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label,
+.info-desc {
+  margin: 0;
+  line-height: normal;
+}
+
+.info-label {
+  font-family: var(--font-cinzel);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--woft-cream);
+}
+
+.info-desc {
+  font-family: var(--font-cormorant);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--woft-dark-cream);
+}
+
+.start-btn {
+  width: 100%;
+  min-height: 51px;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--woft-brand-red);
+  font-family: var(--font-cinzel);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--woft-white);
+  text-align: center;
+}
+
+.seer-screen {
+  --role-background: var(--figma-color-Woft-Role-Seer-Background);
+  --reveal-color: var(--figma-color-Woft-Role-Seer-Reveal-Text);
+  --role-card-border: var(--figma-color-Woft-Role-Seer-Card-Border);
+  --role-title-fill: var(--figma-color-Woft-Role-Seer-Title-Text);
+  --role-title-shadow: drop-shadow(0 2px 5px rgba(26, 191, 255, 0.52));
+  --role-subtitle-color: var(--figma-color-Woft-Role-Seer-Reveal-Text);
+  --role-deco-line: var(--figma-color-Woft-Role-Seer-Deco-Line);
+  --role-deco-bottom: var(--figma-color-Woft-Role-Seer-Deco-Line);
+}
+
+.witch-screen {
+  --role-background: var(--figma-color-Woft-Role-Witch-Background);
+  --reveal-color: var(--figma-color-Woft-Role-Witch-Reveal-Text);
+  --role-card-border: var(--figma-color-Woft-Role-Witch-Card-Border);
+  --role-title-fill: var(--figma-color-Woft-Role-Witch-Title-Text);
+  --role-title-shadow: drop-shadow(0 2px 5px rgba(143, 71, 255, 0.55));
+  --role-subtitle-color: var(--figma-color-Woft-Role-Witch-Reveal-Text);
+  --role-deco-line: var(--figma-color-Woft-Role-Witch-Deco-Line);
+  --role-deco-bottom: var(--figma-color-Woft-Role-Witch-Deco-Line);
+  --role-deco-diamond: var(--figma-color-Woft-Role-Witch-Deco-Diamond);
+}
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-hero {
+  position: relative;
+  width: 390px;
+  height: 420px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.cover-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cover-image img {
+  position: absolute;
+  left: 2.28%;
+  top: 4.22%;
+  width: 95.43%;
+  height: 132.92%;
+  display: block;
+  object-fit: cover;
+}
+
+.cover-fade {
+  position: absolute;
+  top: 0;
+  left: 48px;
+  width: 390px;
+  height: 420px;
+  background: linear-gradient(90deg, rgba(24, 23, 21, 0.1) 0%, rgba(24, 23, 21, 0) 30%, rgba(24, 23, 21, 0.6) 72%, #181715 100%);
+}
+
+.cover-title-area {
+  position: absolute;
+  left: 0;
+  top: 334px;
+  width: 390px;
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.game-title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-cinzel-deco);
+  font-size: 42px;
+  line-height: normal;
+  color: transparent;
+  background: linear-gradient(90deg, #900904, #b9eae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(185, 48, 50, 0.5));
+}
+
+.game-tagline {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-cormorant);
+  font-size: 14px;
+  line-height: normal;
+  color: var(--woft-dark-cream);
+}
+
+.login-content {
+  width: 390px;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 4px 16px 32px;
+}
+
+.login-deco {
+  width: 285.734px;
+  height: 8.5px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-deco-line {
+  flex: 1;
+  height: 1px;
+}
+
+.login-deco-line:first-child {
+  background: var(--gradient-deco-gold-l);
+}
+
+.login-deco-line:last-child {
+  background: var(--gradient-deco-gold-r);
+}
+
+.login-deco-diamond {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--woft-brand-red);
+}
+
+.input-card {
+  width: 100%;
+  height: 166px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border: 1px solid rgba(186, 183, 172, 0.1);
+  border-radius: 24px;
+  background: linear-gradient(to bottom, rgba(48, 48, 48, 0) 0%, #303030 85%);
+}
+
+.input-label {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-cinzel);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--woft-cream);
+}
+
+.room-input {
+  width: 100%;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border: 1px solid rgba(186, 183, 172, 0.25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.room-input span {
+  font-family: var(--font-cinzel);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgba(186, 183, 172, 0.2);
+}
+
+.input-hint {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-thai);
+  font-size: 13px;
+  line-height: normal;
+  color: rgba(186, 183, 172, 0.4);
+  text-align: center;
+}
+
+.action-spacer {
+  width: 100%;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.action-area {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.join-btn,
+.create-btn {
+  width: 100%;
+  border-radius: 16px;
+  font-family: var(--font-cinzel);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.join-btn {
+  height: 51px;
+  border: 0;
+  background: rgba(144, 9, 4, 0.28);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.create-btn {
+  height: 48px;
+  border: 1px solid rgba(186, 183, 172, 0.2);
+  background: transparent;
+  color: var(--woft-dark-cream);
+}
