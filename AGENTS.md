@@ -209,7 +209,7 @@ function setFill(node, fill, gradStyleName=null) {
 ### Remark ใน Figma (HTML → Figma)
 หลัง sync ทุกครั้ง ต้องสร้าง annotation frame **1 อัน** ด้านบน screen เสมอ
 วางที่ `x = screen.x`, `y = screen.y - remark.height - 20`
-- บังคับใช้ทั้ง page ปกติ, page ที่ user ตั้งชื่อเอง, และ `[Dev Change] Update ...` page — ห้าม skip เพราะไม่ได้ใช้ `[Dev Change]` page
+- บังคับใช้ทั้ง page ปกติ, page ที่ user ตั้งชื่อเอง, และ `[Dev Change] Update Codex ...` page — ห้าม skip เพราะไม่ได้ใช้ `[Dev Change]` page
 - Remark ต้องสรุป `change_summary` สำคัญด้วย: variables/styles/components ที่ใช้, skipped/fallback เหตุผล, mismatch, missing assets, unmatched colors
 - ถ้ามี remark เดิมของ frame เดียวกัน ต้องลบ/replace ก่อนสร้างใหม่เสมอ เพื่อไม่ให้ remark เก่าค้าง
 
@@ -247,13 +247,13 @@ pg.appendChild(rem); rem.x=scr.x; rem.y=scr.y-rem.height-20;
 ```
 
 ### Frame Replace บน [Dev Change] page
-- หา page ชื่อขึ้นต้น `[Dev Change] Update` → ใช้ page นั้น; **อัปเดตชื่อ page เป็น timestamp ปัจจุบันทุกครั้ง** (ไม่ clear ทั้ง page)
-- ไม่เจอ → สร้าง page ใหม่, format: `[Dev Change] Update dd/mm/yy hh:mm`
+- หา page ชื่อขึ้นต้น `[Dev Change] Update Codex` → ใช้ page นั้น; **อัปเดตชื่อ page เป็น timestamp ปัจจุบันทุกครั้ง** (ไม่ clear ทั้ง page)
+- ไม่เจอ → สร้าง page ใหม่, format: `[Dev Change] Update Codex dd/mm/yy hh:mm`
 - ```javascript
   // ทุกครั้ง — อัปเดต timestamp ไม่ว่าจะสร้างใหม่หรือใช้ page เดิม
-  let pg = figma.root.children.find(p => p.name.startsWith('[Dev Change] Update'));
+  let pg = figma.root.children.find(p => p.name.startsWith('[Dev Change] Update Codex'));
   if (!pg) { pg = figma.createPage(); }
-  pg.name = `[Dev Change] Update ${ts}`; // always stamp
+  pg.name = `[Dev Change] Update Codex ${ts}`; // always stamp
   ```
 - **Frame name**: อิงจากชื่อไฟล์ HTML (ไม่รวม extension) เช่น `index.html` → frame ชื่อ `index`
 - บน page นั้น หา frame ชื่อตรงกับ HTML filename → replace in-place (จด x,y → remove → สร้างใหม่)

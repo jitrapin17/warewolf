@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 420" width="390" height="420">
+  <defs>
+    <!-- Moon gradient -->
+    <radialGradient id="moonGrad" cx="42%" cy="38%" r="58%">
+      <stop offset="0%"   stop-color="#f0e2b0"/>
+      <stop offset="55%"  stop-color="#c8a85c"/>
+      <stop offset="100%" stop-color="#6e5020"/>
+    </radialGradient>
+    <!-- Moon atmospheric halo -->
+    <radialGradient id="moonAtmo" cx="50%" cy="40%" r="50%">
+      <stop offset="0%"   stop-color="#b9eae8" stop-opacity="0.13"/>
+      <stop offset="60%"  stop-color="#b9eae8" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#181715" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Eye inner glow -->
+    <radialGradient id="eyeCore" cx="50%" cy="45%" r="50%">
+      <stop offset="0%"   stop-color="#ff4420"/>
+      <stop offset="45%"  stop-color="#cc1008"/>
+      <stop offset="100%" stop-color="#900904"/>
+    </radialGradient>
+    <!-- Bottom fade -->
+    <linearGradient id="botFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#181715" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#181715" stop-opacity="1"/>
+    </linearGradient>
+    <!-- Red ambient from eyes -->
+    <radialGradient id="eyeAmbient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#900904" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#900904" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Subtle red rim on figure -->
+    <radialGradient id="rimLight" cx="50%" cy="30%" r="60%">
+      <stop offset="0%"   stop-color="#900904" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#181715" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="eyeBlur" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <filter id="moonBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="softFur" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="390" height="420" fill="#181715"/>
+
+  <!-- ── Moon atmospheric halo ── -->
+  <circle cx="195" cy="158" r="175" fill="url(#moonAtmo)"/>
+  <!-- soft glow ring behind moon -->
+  <circle cx="195" cy="158" r="105" fill="#c8a85c" opacity="0.08" filter="url(#moonBlur)"/>
+
+  <!-- ── Moon ── -->
+  <circle cx="195" cy="155" r="86" fill="url(#moonGrad)"/>
+  <!-- Moon craters -->
+  <circle cx="170" cy="142" r="9"  fill="#6e5020" opacity="0.22"/>
+  <circle cx="214" cy="167" r="6"  fill="#6e5020" opacity="0.18"/>
+  <circle cx="192" cy="178" r="4"  fill="#6e5020" opacity="0.16"/>
+  <circle cx="218" cy="144" r="7"  fill="#6e5020" opacity="0.20"/>
+  <circle cx="178" cy="175" r="5"  fill="#6e5020" opacity="0.18"/>
+  <circle cx="160" cy="168" r="3"  fill="#6e5020" opacity="0.14"/>
+
+  <!-- ── Werewolf silhouette ── -->
+
+  <!-- Left ear (outer dark) -->
+  <path d="M 148 202
+           C 140 168, 118 108, 126 60
+           C 135 76,  162 144, 174 180 Z"
+        fill="#0d0c0b"/>
+  <!-- Left ear inner (reddish) -->
+  <path d="M 152 196
+           C 146 166, 130 114, 135 78
+           C 142 90,  162 148, 170 182 Z"
+        fill="#2e0906" opacity="0.75"/>
+
+  <!-- Right ear (outer dark) -->
+  <path d="M 216 180
+           C 228 144, 255 76, 264 60
+           C 272 108, 250 168, 242 202 Z"
+        fill="#0d0c0b"/>
+  <!-- Right ear inner (reddish) -->
+  <path d="M 220 182
+           C 228 148, 248 90, 255 78
+           C 260 114, 244 166, 238 196 Z"
+        fill="#2e0906" opacity="0.75"/>
+
+  <!-- Head main oval -->
+  <ellipse cx="195" cy="270" rx="95" ry="108" fill="#0d0c0b"/>
+
+  <!-- Snout / muzzle protrusion -->
+  <path d="M 168 292
+           Q 178 315, 195 320
+           Q 212 315, 222 292
+           Q 230 310, 222 330
+           Q 210 346, 195 348
+           Q 180 346, 168 330
+           Q 160 310, 168 292 Z"
+        fill="#111010"/>
+
+  <!-- Neck + shoulder base -->
+  <path d="M 100 350
+           C 115 308, 148 300, 165 295
+           Q 180 288, 195 290
+           Q 210 288, 225 295
+           C 242 300, 275 308, 290 350
+           C 315 378, 340 420, 340 420
+           L 50 420
+           C 50 420, 75 378, 100 350 Z"
+        fill="#0d0c0b"/>
+
+  <!-- Rim light from moon (subtle) -->
+  <ellipse cx="195" cy="200" rx="100" ry="115" fill="url(#rimLight)"/>
+
+  <!-- ── Fur texture ── -->
+  <g stroke="#1a1918" stroke-width="1.4" stroke-linecap="round" fill="none" filter="url(#softFur)">
+    <!-- Left cheek fur -->
+    <path d="M 112 238 C 118 230, 124 234, 120 244"/>
+    <path d="M 108 255 C 115 247, 121 252, 117 262"/>
+    <path d="M 110 272 C 117 265, 123 270, 118 280"/>
+    <path d="M 114 290 C 120 283, 126 287, 122 296"/>
+    <!-- Right cheek fur -->
+    <path d="M 278 238 C 272 230, 266 234, 270 244"/>
+    <path d="M 282 255 C 275 247, 269 252, 273 262"/>
+    <path d="M 280 272 C 273 265, 267 270, 272 280"/>
+    <path d="M 276 290 C 270 283, 264 287, 268 296"/>
+    <!-- Forehead fur -->
+    <path d="M 170 183 C 173 175, 178 178, 175 186"/>
+    <path d="M 183 177 C 187 169, 192 172, 189 180"/>
+    <path d="M 197 176 C 201 168, 206 172, 203 180"/>
+    <path d="M 210 182 C 214 174, 219 178, 215 186"/>
+    <!-- Between eyes brow line -->
+    <path d="M 155 230 C 160 222, 168 226, 164 234"/>
+    <path d="M 222 230 C 226 222, 234 226, 230 234"/>
+  </g>
+
+  <!-- ── Nose ── -->
+  <path d="M 182 300 Q 195 294, 208 300 Q 210 312, 195 315 Q 180 312, 182 300 Z"
+        fill="#1c0904"/>
+  <!-- Nose highlight -->
+  <ellipse cx="189" cy="302" rx="5" ry="3.5" fill="#2e1208" opacity="0.5"/>
+
+  <!-- Mouth hint -->
+  <path d="M 178 328 Q 195 335, 212 328" stroke="#1a0903" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- ── Eyes — ambient glow (back layer) ── -->
+  <ellipse cx="164" cy="246" rx="26" ry="20" fill="url(#eyeAmbient)" filter="url(#eyeBlur)"/>
+  <ellipse cx="226" cy="246" rx="26" ry="20" fill="url(#eyeAmbient)" filter="url(#eyeBlur)"/>
+
+  <!-- ── Eyes — iris ── -->
+  <ellipse cx="164" cy="246" rx="14" ry="11" fill="url(#eyeCore)"/>
+  <ellipse cx="226" cy="246" rx="14" ry="11" fill="url(#eyeCore)"/>
+
+  <!-- ── Eyes — vertical slit pupil ── -->
+  <ellipse cx="164" cy="246" rx="4.5" ry="10"  fill="#060302"/>
+  <ellipse cx="226" cy="246" rx="4.5" ry="10"  fill="#060302"/>
+
+  <!-- ── Eyes — highlight ── -->
+  <circle  cx="168"  cy="240" r="2.8" fill="#ff9980" opacity="0.75"/>
+  <circle  cx="230"  cy="240" r="2.8" fill="#ff9980" opacity="0.75"/>
+
+  <!-- ── Bottom fade to black ── -->
+  <rect y="305" width="390" height="115" fill="url(#botFade)"/>
+</svg>

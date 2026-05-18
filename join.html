@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warewolf - Join Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400&family=Noto+Serif+Thai:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .join-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 844px;
+      width: 100%;
+    }
+
+    /* ── Cover hero ── */
+    .cover-hero {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* gradient fade bottom */
+    .cover-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(24,23,21,0.1)  0%,
+        rgba(24,23,21,0.0) 30%,
+        rgba(24,23,21,0.6) 72%,
+        rgba(24,23,21,1.0) 100%
+      );
+    }
+
+    /* title overlaid on cover */
+    .cover-title-area {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 0 24px;
+    }
+
+    .game-title {
+      font-family: var(--font-cinzel-deco);
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1.05;
+      text-align: center;
+      background-image:
+        var(--gradient-title),
+        linear-gradient(180deg, rgb(230,210,153) 0%, rgb(232,165,48) 40%, rgb(152,89,27) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: var(--effect-title-shadow);
+    }
+
+    .game-tagline {
+      font-family: var(--font-cormorant);
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--color-cream);
+      text-align: center;
+    }
+
+    /* ── Bottom content ── */
+    .bottom-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 4px 16px 32px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* ── Deco separator ── */
+    .deco-sep {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 285.734px;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .deco-sep .deco-line {
+      flex: 1;
+      height: 1px;
+    }
+
+    .deco-sep .deco-line-l { background: var(--gradient-deco-gold-l); }
+    .deco-sep .deco-line-r { background: var(--gradient-deco-gold-r); }
+
+    /* ── Input card ── */
+    .input-card {
+      width: 100%;
+      border-radius: 24px;
+      background: var(--gradient-card-bg);
+      border: 1px solid rgba(186,183,172,0.1);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input-label {
+      font-family: var(--font-cinzel);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--color-cream-light);
+      letter-spacing: 0.06em;
+    }
+
+    .room-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(186,183,172,0.25);
+      border-radius: 12px;
+      padding: 14px;
+      font-family: var(--font-cinzel);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--color-cream-light);
+      text-align: center;
+      letter-spacing: 0.4em;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      caret-color: var(--color-brand-red);
+    }
+
+    .room-input::placeholder {
+      color: rgba(186,183,172,0.2);
+      letter-spacing: 0.25em;
+      font-size: 24px;
+    }
+
+    .room-input:focus {
+      border-color: rgba(144,9,4,0.65);
+      background: rgba(144,9,4,0.07);
+    }
+
+    .room-input.is-error {
+      border-color: rgba(144,9,4,0.85);
+      background: rgba(144,9,4,0.12);
+      color: var(--color-white);
+    }
+
+    .input-hint {
+      font-family: 'Noto Serif Thai', var(--font-cormorant);
+      font-size: 13px;
+      color: rgba(186,183,172,0.4);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .input-error {
+      display: none;
+      font-family: 'Noto Serif Thai', var(--font-cormorant);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--color-brand-red);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .input-error.is-visible {
+      display: block;
+    }
+
+    /* ── Buttons ── */
+    .action-area {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .join-btn {
+      width: 100%;
+      background-color: var(--color-brand-red);
+      border: none;
+      border-radius: 16px;
+      padding: 16px;
+      font-family: var(--font-cinzel);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-white);
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .join-btn:hover  { background-color: #b00a05; }
+    .join-btn:active { background-color: #700703; }
+
+    .join-btn:disabled {
+      background-color: rgba(144,9,4,0.28);
+      cursor: not-allowed;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .create-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(186,183,172,0.2);
+      border-radius: 16px;
+      padding: 14px;
+      font-family: var(--font-cinzel);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-cream);
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .create-btn:hover {
+      border-color: rgba(186,183,172,0.45);
+      background: rgba(255,255,255,0.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="join-container">
+
+      <!-- Cover hero with werewolf image -->
+      <div class="cover-hero">
+        <img class="cover-img" src="assets/werewolf-cover.svg" alt="Warewolf" />
+        <div class="cover-fade"></div>
+        <div class="cover-title-area">
+          <h1 class="game-title">WAREWOLF</h1>
+          <p class="game-tagline">The pack hunts. The village sleeps.</p>
+        </div>
+      </div>
+
+      <!-- Bottom content -->
+      <div class="bottom-content">
+
+        <!-- Deco separator -->
+        <div class="deco-sep">
+          <div class="deco-line deco-line-l"></div>
+          <div class="deco-diamond-wrapper">
+            <div class="deco-diamond"></div>
+          </div>
+          <div class="deco-line deco-line-r"></div>
+        </div>
+
+        <!-- Input card -->
+        <div class="input-card">
+          <p class="input-label">Room Code</p>
+          <input
+            type="text"
+            id="roomCode"
+            class="room-input"
+            placeholder="····"
+            maxlength="4"
+            inputmode="numeric"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="roomHint roomError"
+            aria-invalid="false"
+          />
+          <p class="input-hint" id="roomHint">Enter the 4-digit code from the host</p>
+          <p class="input-error" id="roomError" role="alert" aria-live="polite">ไม่พบห้องนี้ ตรวจสอบรหัสแล้วลองอีกครั้ง</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-area">
+          <button class="join-btn" id="joinBtn" disabled>Join Room</button>
+          <button class="create-btn">Create New Room</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const VALID_ROOM_CODE = '1234';
+    const input = document.getElementById('roomCode');
+    const joinBtn = document.getElementById('joinBtn');
+    const roomError = document.getElementById('roomError');
+
+    function setError(isError) {
+      input.classList.toggle('is-error', isError);
+      roomError.classList.toggle('is-visible', isError);
+      input.setAttribute('aria-invalid', String(isError));
+    }
+
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/\D/g, '').slice(0, 4);
+      setError(false);
+      joinBtn.disabled = input.value.length < 4;
+    });
+
+    joinBtn.addEventListener('click', () => {
+      if (input.value.length === 4) {
+        if (input.value !== VALID_ROOM_CODE) {
+          setError(true);
+          return;
+        }
+        alert('Joining room ' + input.value + '…');
+      }
+    });
+  </script>
+</body>
+</html>
